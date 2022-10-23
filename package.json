@@ -3,6 +3,17 @@
 	"name": "@tinnedtea/rehype-slug",
 	"version": "1.0.0-prerelease",
 	"type": "module",
+	"files": [ "/source" ],
+	"main": "/source/plugin.js",
+	"dependencies": {
+		"hast-util-is-element": "^2.1.2",
+		"hast-util-to-string": "^2.0.0",
+		"unist-util-visit": "^4.1.1"
+	},
+	"devDependencies": {
+		"@types/hast": "^2.3.4",
+		"unified": "^10.1.2"
+	},
 	"license": "GPL-3.0-or-later",
 	"repository": {
 		"type": "git",
