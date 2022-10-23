@@ -1,0 +1,15 @@
+// https://www.typescriptlang.org/tsconfig
+{
+	"$schema": "https://json.schemastore.org/jsconfig.json",
+
+	"compilerOptions": {
+		"checkJs": true,
+		"forceConsistentCasingInFileNames": true,
+		"lib": [ "esnext" ],
+		"module": "esnext",
+		"moduleResolution": "nodenext",
+		"resolveJsonModule": true,
+		"strict": true,
+		"target": "esnext"
+	}
+}
