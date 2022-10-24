@@ -1,27 +1,25 @@
 # yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
-name: Publish Package
+name: 📦 Publish Package
 
 on:
   push:
-    branches:
-    - main
-  workflow_dispatch:
-    inputs:
-      publish:
-        default: true
-        description: Push to Registry
-        required: false
-        type: boolean
+    tags:
+      - '*'
+  workflow_dispatch: { }
 
 jobs:
   publish:
     name: Push to Registry
-    if: ${{ inputs.publish != false }}
     runs-on: ubuntu-latest
     steps:
-    - name: 🐙 Git Checkout
+    - name: Git Setup
       uses: actions/checkout@main
-    - name: 📂 NPM Publish
-      uses: JS-DevTools/npm-publish@v1
+    - name: Node.js Setup
+      uses: actions/setup-node@v3
       with:
-        token: ${{ secrets.NPM }}
+        node-version: 18
+        registry-url: https://registry.npmjs.org
+    - name: NPM Publish
+      run: npm publish
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM }}
