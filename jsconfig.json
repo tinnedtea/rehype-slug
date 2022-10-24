@@ -5,11 +5,11 @@
 	"compilerOptions": {
 		"checkJs": true,
 		"forceConsistentCasingInFileNames": true,
-		"lib": [ "esnext" ],
-		"module": "esnext",
-		"moduleResolution": "nodenext",
+		"lib": [ "es2022" ],
+		"module": "es2022",
+		"moduleResolution": "node16",
 		"resolveJsonModule": true,
 		"strict": true,
-		"target": "esnext"
+		"target": "es2022"
 	}
 }
