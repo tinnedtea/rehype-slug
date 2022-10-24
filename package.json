@@ -5,6 +5,7 @@
 	"type": "module",
 	"files": [ "/source" ],
 	"main": "/source/plugin.js",
+	"types": "/source/types.d.ts",
 	"dependencies": {
 		"hast-util-is-element": "^2.1.2",
 		"hast-util-to-string": "^2.0.0",
