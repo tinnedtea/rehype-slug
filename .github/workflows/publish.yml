@@ -20,7 +20,9 @@ jobs:
         node-version: 18
         registry-url: https://registry.npmjs.org
     - name: Typescript Build
-      run: npm run build
+      run: |
+        npm ci
+        npm run build
     - name: NPM Publish
       run: npm publish --access public
       env:
