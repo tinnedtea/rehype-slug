@@ -6,9 +6,11 @@
 	"engines": {
 		"node": ">= 16.0.0"
 	},
-	"files": [ "/source" ],
-	"main": "/source/plugin.js",
-	"types": "/source/types.d.ts",
+	"files": [
+		"/build"
+	],
+	"main": "/build/plugin.js",
+	"types": "/build/plugin.d.ts",
 	"dependencies": {
 		"hast-util-is-element": "~2.1.0",
 		"hast-util-to-string": "~2.0.0",
@@ -16,7 +18,11 @@
 	},
 	"devDependencies": {
 		"@types/hast": "~2.3.0",
+		"typescript": "~4.8.0",
 		"unified": "~10.1.0"
+	},
+	"scripts": {
+		"build": "tsc"
 	},
 	"author": {
 		"email": "mail@tinnedtea.com",
