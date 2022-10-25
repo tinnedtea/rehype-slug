@@ -61,10 +61,8 @@ This project is powered by TypeScript and JSDoc. It features a build-process to 
 
 First clone the repo...
 ```sh
-git clone https://github.com/tinnedtea/rehype-slug
-```
-```sh
-cd ./rehype-slug
+git clone https://github.com/tinnedtea/rehype-slug && \
+	cd ./rehype-slug
 ```
 
 ...then install the dependencies...
@@ -77,7 +75,7 @@ npm ci
 npm run build
 ```
 
-Voila, A `build` folder popped up with the compiled JavaScript! The `rehype-slug` directory is now ready to be pushed to a NPM-Registry.
+Voila, a `build` folder popped up with the compiled JavaScript! The `rehype-slug` directory is now ready to be pushed to a NPM-Registry.
 
 ## Licence
 
