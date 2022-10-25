@@ -49,7 +49,7 @@ The *config* object accepts the following parameters:
 - `test`, a node-matcher provided to [`hast-util-is-element`](https://github.com/syntax-tree/hast-util-is-element): [`Test`](https://github.com/syntax-tree/hast-util-is-element#function-testelement-index-parent) *(defaults to heading elements)*
 - `uniqueifier`, a function which makes a generated slug more unique: `(slug: string, instance: number, textContent: string) => string` *(defaults to `${ slug }-${ instance }`)*
 
-The whole package is documented using JSDoc-comments, but feel free to report if something isn't clear.
+This project is written using TypeScript and documented using JSDoc, but feel free to contact me, if something isn't clear.
 
 ## Licence
 
