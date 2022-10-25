@@ -61,7 +61,7 @@ This project is powered by TypeScript and JSDoc. It features a build-process to 
 
 First clone the repo...
 ```sh
-git clone https://github.com/@tinnedtea/rehype-slug
+git clone https://github.com/tinnedtea/rehype-slug
 ```
 ```sh
 cd ./rehype-slug
