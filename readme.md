@@ -14,7 +14,13 @@ This plugin also fixes a logical error present in [`rehype-slug`](https://github
 
 ## Usage
 
-Simply provide a slugging-algorithm when using this plugin...
+Install the plugin using your favorite package manager...
+
+```sh
+npm install @tinnedtea/rehype-slug
+```
+
+...then provide a slugging-algorithm...
 
 ```js
 import { rehype } from 'rehype'
@@ -26,7 +32,7 @@ await rehype()
 // returns '<h1 id="Good-Morning-">Good morning!</h1>'
 ```
 
-...or supply a *config* object.
+...or a `Config` object.
 
 ```js
 import { rehype } from 'rehype'
@@ -43,13 +49,35 @@ await rehype()
 // returns '<p id='slug'/><i id='slug-2-electric-boogaloo'/>'
 ```
 
-The *config* object accepts the following parameters:
+The `Config` object accepts the following parameters:
 - `overwrite`, an option to overwrite existing ids: `boolean` *(defaults to `false`)*
 - `slugger`, the slugging-algorithm: `(textContent: string) => string` *(required)*
 - `test`, a node-matcher provided to [`hast-util-is-element`](https://github.com/syntax-tree/hast-util-is-element): [`Test`](https://github.com/syntax-tree/hast-util-is-element#function-testelement-index-parent) *(defaults to heading elements)*
 - `uniqueifier`, a function which makes a generated slug more unique: `(slug: string, instance: number, textContent: string) => string` *(defaults to `${ slug }-${ instance }`)*
 
-This project is written using TypeScript and documented using JSDoc, but feel free to contact me, if something isn't clear.
+## Building
+
+This project is powered by TypeScript and JSDoc. It features a build-process to compile into regular JavaScript.
+
+First clone the repo...
+```sh
+git clone https://github.com/@tinnedtea/rehype-slug
+```
+```sh
+cd ./rehype-slug
+```
+
+...then install the dependencies...
+```sh
+npm ci
+```
+
+... and finally compile the package.
+```sh
+npm run build
+```
+
+Voila, A `build` folder popped up with the compiled JavaScript! The `rehype-slug` directory is now ready to be pushed to a NPM-Registry.
 
 ## Licence
 
