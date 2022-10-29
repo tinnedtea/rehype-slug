@@ -7,15 +7,14 @@
 		"checkJs": true,
 		"declaration": true,
 		"esModuleInterop": true,
-		"forceConsistentCasingInFileNames": true,
-		"importsNotUsedAsValues": "error",
-		"isolatedModules": true,
-		"lib": [ "es2015" ],
-		"moduleResolution": "node16",
+		"lib": [ "es2021" ],
+		"module": "node16",
 		"outDir": "./build",
-		"preserveValueImports": true,
+		"paths": {
+			"/*": [ "*" ]
+		},
 		"strict": true,
-		"target": "es2015"
+		"target": "es2021"
 	},
 	"include": [ "./source/**/*.ts" ]
 }
