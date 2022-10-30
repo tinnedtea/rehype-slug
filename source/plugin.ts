@@ -1,8 +1,9 @@
-import { isElement as matchNode } from 'hast-util-is-element'
-import { toString as stringifyNode } from 'hast-util-to-string'
-import { visit as walkTree } from 'unist-util-visit'
-import type * as Rehype from 'hast'
-import type * as MatchNode from 'hast-util-is-element'
+import path from 'node:path'
+import url from 'node:url'
+import * as hastMatcher from 'hast-util-is-element'
+import * as hastStringifier from 'hast-util-to-string'
+import * as unistTree from 'unist-util-visit'
+import type Rehype from 'hast'
 import type * as Unified from 'unified'
 
 export interface Config {
@@ -19,10 +20,10 @@ export interface Config {
 	slugger: (textContent: string) => string,
 
 	/**
-		A {@link MatchNode.Test | `Test`} which marks nodes as sluggable.
+		A {@link hastMatcher.Test | `Test`} which marks nodes as sluggable.
 		Defaults to headings.
 	*/
-	test?: MatchNode.Test,
+	test?: hastMatcher.Test,
 
 	/**
 		A function, which makes a slug more unique. It only gets called, if a
@@ -36,7 +37,7 @@ export interface Config {
 /**
 	Add ids to your rehype-nodes.
 
-	```js
+	@example
 	import { rehype } from 'rehype'
 	import slug from '@tinnedtea/rehype-slug'
 
@@ -44,13 +45,21 @@ export interface Config {
 		.use(slug, () => String(Math.random()))
 		.process('<h1/>')
 	// returns '<h1 id="0.69..."/>'
-	```
 */
 export const slug: Unified.Plugin<Array<Config | Config['slugger']>, Rehype.Root> = function(input) {
 	if (!input) {
-		throw new Error('No slug-generator provided, exiting. See: https://github.com/tinnedtea/rehype-slug#usage')
+		const currentScript: string = url.fileURLToPath(import.meta.url)
+		const readme: string = path.resolve(currentScript, '../../readme.md')
+		const relativeReadme: string = path.relative(process.cwd(), readme)
+
+		throw new Error(
+`No slug-generator provided, @tinnedtea/rehype-slug requires a second argument.
+See usage in '${ relativeReadme }'.`
+		)
 	}
-	const config: Config = typeof input === 'object' ? input : { slugger: input }
+	const config: Config = typeof input === 'object' ? input : {
+		slugger: input
+	}
 
 	return tree => {
 		if (!config.test) {
@@ -67,18 +76,18 @@ export const slug: Unified.Plugin<Array<Config | Config['slugger']>, Rehype.Root
 		const ids: Set<string> = new Set()
 		const nodes: Set<Rehype.Element> = new Set()
 
-		walkTree(tree, 'element', node => {
+		unistTree.visit(tree, 'element', node => {
 			if (!config.overwrite && node.properties?.id) {
 				ids.add(String(node.properties.id))
 			}
-			if (matchNode(node, config.test)) {
+			if (hastMatcher.isElement(node, config.test)) {
 				nodes.add(node)
 			}
 		})
 
 		for (const node of nodes) {
 			if (config.overwrite || !node.properties?.id) {
-				const textContent: string = stringifyNode(node)
+				const textContent: string = hastStringifier.toString(node)
 				const slug: string = config.slugger(textContent)
 
 				let id: string = slug
