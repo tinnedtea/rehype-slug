@@ -6,15 +6,15 @@
 
 ## About
 
-This [`rehype`](https://github.com/rehypejs/rehype)-plugin enables you to add ids (also known as slugs) to nodes.
-There is no default slugging-algorithm, you have to provide your own.
+This [`rehype`](https://github.com/rehypejs/rehype)-plugin enables you to add ids (also known as slugs) to your nodes.
+No slugging-algorithm is shipped with this package, so you have to use your own.
 By default only headings without an id recieve a slug, but this behaviour can be configured.
 
-This plugin also fixes a logical error present in [`rehype-slug`](https://github.com/rehypejs/rehype-slug), namely that it does not take in account ids already living in the document. My fork appends `-${ number }` by default to prevent this.
+A logical error present in [`rehype-slug`](https://github.com/rehypejs/rehype-slug) is also fixed here, namely that it does not take in account ids already living in the document. My fork appends `-${ number }` (again, configurable) to prevent duplicates.
 
 ## Usage
 
-Install the plugin using your favorite package manager...
+Install the plugin using npm...
 
 ```sh
 npm install @tinnedtea/rehype-slug
@@ -27,9 +27,9 @@ import { rehype } from 'rehype'
 import slug from '@tinnedtea/rehype-slug'
 
 await rehype()
-	.use(slug, string => string.replace(/[^a-z]+/gi, '-'))
+	.use(slug, string => string.toLowerCase().replace(/[^a-z]/g, '-'))
 	.process('<h1>Good morning!</h1>')
-// returns '<h1 id="Good-Morning-">Good morning!</h1>'
+// returns '<h1 id="good-morning-">Good morning!</h1>'
 ```
 
 ...or a `Config` object.
@@ -49,15 +49,16 @@ await rehype()
 // returns '<p id='slug'/><i id='slug-2-electric-boogaloo'/>'
 ```
 
-The `Config` object accepts the following parameters:
+The `Config` object consists of the following parameters:
+- `slugger`, the slugging-algorithm: `(textContent: string) => string` ***(mandatory)***
 - `overwrite`, an option to overwrite existing ids: `boolean` *(defaults to `false`)*
-- `slugger`, the slugging-algorithm: `(textContent: string) => string` *(required)*
-- `test`, a node-matcher provided to [`hast-util-is-element`](https://github.com/syntax-tree/hast-util-is-element): [`Test`](https://github.com/syntax-tree/hast-util-is-element#function-testelement-index-parent) *(defaults to heading elements)*
+- `test`, a node-matcher used by [`hast-util-is-element`](https://github.com/syntax-tree/hast-util-is-element): [`Test`](https://github.com/syntax-tree/hast-util-is-element#function-testelement-index-parent) *(defaults to heading elements)*
 - `uniqueifier`, a function which makes a generated slug more unique: `(slug: string, instance: number, textContent: string) => string` *(defaults to `${ slug }-${ instance }`)*
 
 ## Building
 
-This project is powered by TypeScript and JSDoc. It features a build-process to compile into regular JavaScript.
+This project is powered by TypeScript and features JSDoc-comments.
+A build-process is provided to compile the code into regular JavaScript:
 
 First clone the repo...
 ```sh
@@ -75,10 +76,10 @@ npm ci
 npm run build
 ```
 
-Voila, a `build` folder popped up with the compiled JavaScript! The `rehype-slug` directory is now ready to be pushed to a NPM-Registry.
+And voilá, a `build` folder popped up with the compiled JavaScript! 
+The `rehype-slug` directory is now ready to be pushed to a registry.
 
 ## Licence
 
-This plugin is licensed under the **GNU General Public License v3.0 or later**.
-
+This plugin is licensed under the **GNU General Public License v3.0 or later**.  
 The complete licence is provided in [`/licence`](/licence).
