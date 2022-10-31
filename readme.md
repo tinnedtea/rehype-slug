@@ -1,8 +1,10 @@
-<h1 align='center'>
-  	<a href='https://npmjs.com/package/@tinnedtea/rehype-slug'>@tinnedtea/rehype-slug</a>
-</h1>
+<div align='center'>
 
-<p align='center'>Add ids to your <a href='https://github.com/rehypejs/rehype'><code>rehype</code></a>-nodes.</p>
+# [@tinnedtea/rehype-slug](https://npmjs.com/package/@tinnedtea/rehype-slug)
+
+Add ids to your [`rehype`](https://github.com/rehypejs/rehype)-nodes.
+
+</div>
 
 ## About
 
@@ -27,9 +29,9 @@ import { rehype } from 'rehype'
 import slug from '@tinnedtea/rehype-slug'
 
 await rehype()
-	.use(slug, string => string.toLowerCase().replace(/[^a-z]/g, '-'))
-	.process('<h1>Good morning!</h1>')
-// returns '<h1 id="good-morning-">Good morning!</h1>'
+	.use(slug, string => string.toLowerCase().replace(/[^a-z]+/g, '-'))
+	.process('<h1>Gecko! 🦎</h1>')
+// returns '<h1 id="gecko-">Gecko! 🦎</h1>'
 ```
 
 ...or a `Config` object.
@@ -40,8 +42,8 @@ import slug from '@tinnedtea/rehype-slug'
 
 await rehype()
 	.use(slug, {
-		overwrite: true,
 		slugger: () => 'slug',
+		overwrite: true,
 		test: () => true,
 		uniqueifier: (slug, instance) => `${ slug }-${ instance }-electric-boogaloo`
 	})

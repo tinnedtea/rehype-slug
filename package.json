@@ -39,8 +39,5 @@
 		"id"
 	],
 	"license": "GPL-3.0-or-later",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/tinnedtea/rehype-slug"
-	}
+	"repository": "https://gitlab.com/tinnedtea/rehype-slug"
 }
