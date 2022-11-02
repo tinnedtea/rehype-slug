@@ -64,7 +64,7 @@ A build-process is provided to compile the code into regular JavaScript:
 
 First clone the repo...
 ```sh
-git clone https://github.com/tinnedtea/rehype-slug && \
+git clone https://gitlab.com/tinnedtea/rehype-slug.git && \
 	cd ./rehype-slug
 ```
 
