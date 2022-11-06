@@ -23,7 +23,7 @@
 		"typescript": "~4.8.0"
 	},
 	"scripts": {
-		"build": "tsc --build --diagnostics --verbose"
+		"build": "rm --force --recursive ./build && tsc --build --diagnostics --verbose"
 	},
 	"author": {
 		"email": "mail@tinnedtea.com",
