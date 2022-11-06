@@ -6,6 +6,7 @@
 		"baseUrl": ".",
 		"checkJs": true,
 		"declaration": true,
+		"declarationDir": "./build/types",
 		"esModuleInterop": true,
 		"lib": [ "es2021" ],
 		"module": "node16",
@@ -16,5 +17,5 @@
 		"strict": true,
 		"target": "es2021"
 	},
-	"include": [ "./source/**/*.ts" ]
+	"include": [ "./source" ]
 }
