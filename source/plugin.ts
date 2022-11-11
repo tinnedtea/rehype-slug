@@ -77,29 +77,33 @@ See usage in '${ readme }'.`
 		const nodes: Set<Rehype.Element> = new Set()
 
 		unistTree.visit(tree, 'element', node => {
-			if (!config.overwrite && node.properties?.id) {
-				ids.add(String(node.properties.id))
+			const matches: boolean = hastMatcher.isElement(node, config.test)
+
+			if (matches) {
+				if (config.overwrite || !node.properties?.id) {
+					nodes.add(node)
+				}
 			}
-			if (hastMatcher.isElement(node, config.test)) {
-				nodes.add(node)
+			if (node.properties?.id) {
+				if (!config.overwrite || (config.overwrite && !matches)) {
+					ids.add(String(node.properties.id))
+				}
 			}
 		})
 
 		for (const node of nodes) {
-			if (config.overwrite || !node.properties?.id) {
-				const textContent: string = hastStringifier.toString(node)
-				const slug: string = config.slugger(textContent, node)
+			const textContent: string = hastStringifier.toString(node)
+			const slug: string = config.slugger(textContent, node)
 
-				let id: string = slug
-				for (let instance: number = 2; ids.has(id); instance++) {
-					id = config.uniqueifier(slug, instance, textContent, node)
-				}
+			let id: string = slug
+			for (let instance: number = 2; ids.has(id); instance++) {
+				id = config.uniqueifier(slug, instance, textContent, node)
+			}
 
-				ids.add(id)
-				node.properties = {
-					...node.properties,
-					id
-				}
+			ids.add(id)
+			node.properties = {
+				...node.properties,
+				id
 			}
 		}
 	}
