@@ -52,10 +52,10 @@ await rehype()
 ```
 
 A `Config` object consists of the following parameters:
-- `slugger`, the slugging-algorithm: `(textContent: string) => string` ***(mandatory)***
+- `slugger`, the slugging-algorithm: `(textContent: string, node: Rehype.Element) => string` ***(mandatory)***
 - `overwrite?`, an option to overwrite existing ids: `boolean` *(defaults to `false`)*
 - `test?`, a node-matcher provided to [`hast-util-is-element`](https://github.com/syntax-tree/hast-util-is-element): [`Test`](https://github.com/syntax-tree/hast-util-is-element#function-testelement-index-parent) *(defaults to heading elements)*
-- `uniqueifier?`, a function, which makes a generated slug more unique: `(slug: string, instance: number, textContent: string) => string` *(defaults to `${ slug }-${ instance }`)*
+- `uniqueifier?`, a function, which makes a generated slug more unique: `(slug: string, instance: number, textContent: string, node: Rehype.Element) => string` *(defaults to `${ slug }-${ instance }`)*
 
 ## Building
 
