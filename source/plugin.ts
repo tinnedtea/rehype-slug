@@ -48,13 +48,13 @@ export interface Config {
 */
 export const slug: Unified.Plugin<Array<Config | Config['slugger']>, Rehype.Root> = function(input) {
 	if (!input) {
-		const currentScript: string = url.fileURLToPath(import.meta.url)
-		const readme: string = path.resolve(currentScript, '../../readme.md')
-		const relativeReadme: string = path.relative(process.cwd(), readme)
+		const plugin: string = url.fileURLToPath(import.meta.url)
+		const module: string = path.join(plugin, '../..')
+		const readme: string = path.relative(process.cwd(), path.join(module, './readme.md'))
 
 		throw new Error(
 `No slug-generator provided, @tinnedtea/rehype-slug requires a second argument.
-See usage in '${ relativeReadme }'.`
+See usage in '${ readme }'.`
 		)
 	}
 	const config: Config = typeof input === 'object' ? input : {
