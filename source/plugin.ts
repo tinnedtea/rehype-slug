@@ -50,7 +50,7 @@ export const slug: Unified.Plugin<Array<Config | Config['slugger']>, Rehype.Root
 	if (!input) {
 		const plugin: string = url.fileURLToPath(import.meta.url)
 		const module: string = path.join(plugin, '../..')
-		const readme: string = path.relative(process.cwd(), path.join(module, './readme.md'))
+		const readme: string = `.${ path.sep }` + path.relative(process.cwd(), path.join(module, './readme.md'))
 
 		throw new Error(
 `No slug-generator provided, @tinnedtea/rehype-slug requires a second argument.
