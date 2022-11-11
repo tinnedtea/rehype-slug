@@ -20,10 +20,12 @@
 	},
 	"devDependencies": {
 		"@types/node": "16.*.*",
+		"rimraf": "3.0.*",
 		"typescript": "4.8.*"
 	},
 	"scripts": {
-		"build": "rm --force --recursive ./build && tsc --build --diagnostics --verbose"
+		"prebuild": "rimraf ./build",
+		"build": "tsc --build --diagnostics --verbose"
 	},
 	"author": {
 		"email": "mail@tinnedtea.com",
