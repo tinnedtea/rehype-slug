@@ -1,5 +1,8 @@
 # https://docs.gitlab.com/ee/ci/yaml
 # yaml-language-server: $schema=https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json
+variables:
+  CODEBERG_USERNAME: tinnedtea
+
 image: node:16-bullseye-slim
 stages:
 - Build
@@ -40,6 +43,12 @@ TypeScript:
   script:
   - npm run build
 
+Codeberg:
+  extends:
+  - .deploy
+  variables:
+    REGISTRY: codeberg.org/api/packages/${CODEBERG_USERNAME}/npm
+    TOKEN: $CODEBERG_TOKEN
 GitLab:
   extends:
   - .deploy
