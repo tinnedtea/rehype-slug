@@ -2,7 +2,7 @@
 	"$comment": "https://docs.gitlab.com/ee/ci/yaml",
 	"$schema": "https://json.schemastore.org/package.json",
 	"name": "@tinnedtea/rehype-slug",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"type": "module",
 	"engines": {
 		"node": ">= 16.0.0"
