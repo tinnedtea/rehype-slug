@@ -1,3 +1,4 @@
+# https://docs.gitlab.com/ee/ci/yaml
 # yaml-language-server: $schema=https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json
 image: node:16-bullseye-slim
 stages:
