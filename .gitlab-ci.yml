@@ -4,25 +4,33 @@ image: node:16-bullseye-slim
 stages:
 - Build
 - Deploy
+workflow:
+  rules:
+  - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    #
+    #   The GitLab-if-syntax is extremely confusing. Only one of
+    #   the specified if-statements has to match for the rule-
+    #   block to succeed. This behaviour can only be mitigated by
+    #   supplying 'when: never', which then gets overwriten to
+    #   'when: on_success' by following successful if-statements.
+    #
+    when: never
+  - if: $CI_COMMIT_TAG =~ /^[0-9]+\.[0-9]+\.[0-9]+$/
 
 .deploy:
   stage: Deploy
   needs:
-  - Node
-  rules:
-  - if:
-      $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH &&
-        $CI_COMMIT_TAG =~ /^[0-9]+\.[0-9]+\.[0-9]+$/
+  - TypeScript
   before_script:
-  - npm config --global set \
-      access=public \
-      registry="https://${REGISTRY}" \
-      "//${REGISTRY}/:_authToken"='${TOKEN}'
+  - npm config set \
+      access public \
+      registry "https://${REGISTRY}/" \
+      "//${REGISTRY}/:_authToken" '${TOKEN}'
   script:
   - npm publish
 
 
-Node:
+TypeScript:
   stage: Build
   artifacts:
     paths:
@@ -32,18 +40,21 @@ Node:
   script:
   - npm run build
 
-NPM:
-  extends: .deploy
-  variables:
-    REGISTRY: registry.npmjs.org
-    TOKEN: ${NPM_TOKEN}
 GitLab:
-  extends: .deploy
+  extends:
+  - .deploy
   variables:
-    REGISTRY: gitlab.com/api/v4/packages/npm
-    TOKEN: ${CI_JOB_TOKEN}
+    REGISTRY: gitlab.com/api/v4/projects/${CI_PROJECT_ID}/packages/npm
+    TOKEN: $CI_JOB_TOKEN
 GitHub:
-  extends: .deploy
+  extends:
+  - .deploy
   variables:
     REGISTRY: npm.pkg.github.com
-    TOKEN: ${GITHUB_TOKEN}
+    TOKEN: $GITHUB_TOKEN
+NPM:
+  extends:
+  - .deploy
+  variables:
+    REGISTRY: registry.npmjs.org
+    TOKEN: $NPM_TOKEN
