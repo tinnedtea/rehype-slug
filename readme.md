@@ -100,7 +100,8 @@ The `rehype-slug` directory is now ready to be pushed to a registry.
 
 ## Contributing
 
-We are in open-source-land after all, aren't we?  
+We are in open-source-land after all, aren't we?
+
 You are free to suggest changes and report issues by any means
 comfortable - may it be the repos issue-tracker, an [email](mailto:mail@tinnedtea.com)
 or a note on my fridge. As to repos, all of my projects have mirrors, whilst
