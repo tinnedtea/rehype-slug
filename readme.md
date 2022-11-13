@@ -8,9 +8,7 @@ Add ids to your [`rehype`](https://github.com/rehypejs/rehype)-nodes.
 
 ## About
 
-This [`rehype`](https://github.com/rehypejs/rehype)-plugin allows you to add ids (also known as slugs) to your nodes.
-No slugging-algorithm is shipped with this package, so you have to provide your own.
-By default only headings without an id recieve a slug, but this behaviour can be configured.
+This [`rehype`](https://github.com/rehypejs/rehype)-plugin allows you to add ids (also known as slugs) to your nodes. No slugging-algorithm is shipped with this package, so you have to provide your own. By default only headings without an id recieve a slug, but this behaviour can be configured.
 
 A logical error present in [`rehype-slug`](https://github.com/rehypejs/rehype-slug) is also fixed here, namely that it does not take in account ids already living in the document. My plugin appends `-${ number }` (again, configurable) to prevent duplicates.
 
@@ -60,7 +58,7 @@ A `Config` object consists of the following parameters:
 ## Building
 
 This project is powered by TypeScript and features JSDoc-comments.
-A build-script is provided to compile the code into regular JavaScript:
+Since we need regular old JavaScript, a build-process is provided to compile the code:
 
 First clone the repo...
 ```sh
@@ -73,7 +71,7 @@ git clone https://gitlab.com/tinnedtea/rehype-slug.git && \
 npm ci
 ```
 
-... and finally compile the package.
+... and finally build the package.
 ```sh
 npm run build
 ```
@@ -81,7 +79,14 @@ npm run build
 And voilá, a `build` folder popped up with the compiled JavaScript! 
 The `rehype-slug` directory is now ready to be pushed to a registry.
 
+## Contributing
+
+We are in open-source-land after all, aren't we?  
+You are free to suggest changes and report issues by any means comfortable - may it be the repos issue-tracker, an [email](mailto:mail@tinnedtea.com) or a note on my fridge. As to repos, all of my projects have mirrors, whilst the origin is always on [GitLab](https://gitlab.com/tinnedtea/rehype-slug). If you want something more libre or mainstream, head to [Codeberg](https://codeberg.org/tinnedtea/rehype-slug) or [GitHub](https://github.com/tinnedtea/rehype-slug) respectively.
+
+I accept issue-reports and pull-requests on all platforms (this may change as projects grow, I can only handle so many different types of notifications, you know?).
+
 ## Licence
 
 This plugin is licensed under the **GNU General Public License v3.0 only**.  
-The complete licence is provided in [`/licence`](/licence).
+The complete licence is provided in [`./licence`](./licence).
