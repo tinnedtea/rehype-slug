@@ -119,7 +119,7 @@ The complete licence is provided in [`./licence`][Licence].
 
 [^registries]: You may also want to use an alternate npm-registry. My 
 packages are also published to [GitLab], [Codeberg] and [GitHub],
-just follow a link and click on 'Packages', then follow the provided
+just follow a link, navigate to packages and follow the provided
 instructions.
 
 [NPM Package]: https://npmjs.com/package/@tinnedtea/rehype-slug
