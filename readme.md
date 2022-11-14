@@ -104,7 +104,7 @@ We are in open-source-land after all, aren't we?
 You are free to suggest changes and report issues by any means
 comfortable - may it be the repos issue-tracker, an [email] or a 
 note on my fridge. As to repos, all of my projects have mirrors,
-whilst the origin is always on [GitLab]. If you want something
+while the original is always hosted on [GitLab]. If you want something
 more libre or mainstream, head to [Codeberg] or [GitHub] respectively.
 
 I accept issue-reports and pull-requests on all platforms (this may
