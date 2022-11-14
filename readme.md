@@ -117,10 +117,10 @@ This plugin is licensed under the **GNU General Public License v3.0 only**.
 The complete licence is provided in [`./licence`][./licence].
 
 
-[^registries]:
-You may also want to use an alternate npm-registry. My packages are
-also published to [GitLab], [Codeberg] and [GitHub], just follow a link
-and click on 'Packages', then follow the provided instructions.
+[^registries]: You may also want to use an alternate npm-registry. My 
+packages are also published to [GitLab], [Codeberg] and [GitHub],
+just follow a link and click on 'Packages', then follow the provided
+instructions.
 
 [@tinnedtea/rehype-slug]: https://npmjs.com/package/@tinnedtea/rehype-slug
 [rehype]: https://github.com/rehypejs/rehype
