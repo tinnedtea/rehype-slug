@@ -1,19 +1,19 @@
 <div align='center'>
 
-# [@tinnedtea/rehype-slug]
+# [@tinnedtea/rehype-slug][NPM Package]
 
-Add ids to your [`rehype`][rehype]-nodes.
+Add ids to your [`rehype`][Rehype]-nodes.
 
 </div>
 
 ## About
 
-This [`rehype`][rehype]-plugin allows you to add ids (also known as slugs) 
+This [`rehype`][Rehype]-plugin allows you to add ids (also known as slugs) 
 to your nodes. No slugging-algorithm is shipped with this package, so you 
 have to provide your own. By default only headings without an id recieve
 a slug, but this behaviour can be configured.
 
-A logical error present in [`rehype-slug`][rehype-slug] is also fixed here,
+A logical error present in [`rehype-slug`][Rehype Slug] is also fixed here,
 namely that it does not take in account ids already living in the document.
 My plugin appends `-${ number }` (again, configurable) to prevent duplicates.
 
@@ -64,8 +64,8 @@ A `Config` object consists of the following parameters:
 `boolean`
 *(defaults to `false`)*
 
-- `test?`, a node-matcher provided to [`hast-util-is-element`][hast-util-is-element]:
-[`Test`][Test]
+- `test?`, a node-matcher provided to [`hast-util-is-element`][Hast Matcher]:
+[`Test`][Hast Matcher | Test]
 *(defaults to heading elements)*
 
 - `uniqueifier?`, a function, which makes a generated slug more unique:
@@ -114,7 +114,7 @@ of notifications, you know).
 ## Licence
 
 This plugin is licensed under the **GNU General Public License v3.0 only**.  
-The complete licence is provided in [`./licence`][./licence].
+The complete licence is provided in [`./licence`][Licence].
 
 
 [^registries]: You may also want to use an alternate npm-registry. My 
@@ -122,13 +122,13 @@ packages are also published to [GitLab], [Codeberg] and [GitHub],
 just follow a link and click on 'Packages', then follow the provided
 instructions.
 
-[@tinnedtea/rehype-slug]: https://npmjs.com/package/@tinnedtea/rehype-slug
-[rehype]: https://github.com/rehypejs/rehype
-[rehype-slug]: https://github.com/rehypejs/rehype-slug
-[hast-util-is-element]: https://github.com/syntax-tree/hast-util-is-element
-[Test]: https://github.com/syntax-tree/hast-util-is-element#function-testelement-index-parent
-[email]: mailto:mail@tinnedtea.com
+[NPM Package]: https://npmjs.com/package/@tinnedtea/rehype-slug
+[Rehype]: https://github.com/rehypejs/rehype
+[Rehype Slug]: https://github.com/rehypejs/rehype-slug
+[Hast Matcher]: https://github.com/syntax-tree/hast-util-is-element
+[Hast Matcher | Test]: https://github.com/syntax-tree/hast-util-is-element#function-testelement-index-parent
+[Email]: mailto:mail@tinnedtea.com
 [GitLab]: https://gitlab.com/tinnedtea/rehype-slug
 [Codeberg]: https://codeberg.org/tinnedtea/rehype-slug
 [GitHub]: https://github.com/tinnedtea/rehype-slug
-[./licence]: ./licence
+[Licence]: ./licence
