@@ -1,26 +1,25 @@
 <div align='center'>
 
-# [@tinnedtea/rehype-slug](https://npmjs.com/package/@tinnedtea/rehype-slug)
+# [@tinnedtea/rehype-slug]
 
-Add ids to your [`rehype`](https://github.com/rehypejs/rehype)-nodes.
+Add ids to your [`rehype`][rehype]-nodes.
 
 </div>
 
 ## About
 
-This [`rehype`](https://github.com/rehypejs/rehype)-plugin allows you to add
-ids (also known as slugs) to your nodes. No slugging-algorithm is shipped with
-this package, so you have to provide your own. By default only headings without
-an id recieve a slug, but this behaviour can be configured.
+This [`rehype`][rehype]-plugin allows you to add ids (also known as slugs) 
+to your nodes. No slugging-algorithm is shipped with this package, so you 
+have to provide your own. By default only headings without an id recieve
+a slug, but this behaviour can be configured.
 
-A logical error present in [`rehype-slug`](https://github.com/rehypejs/rehype-slug)
-is also fixed here, namely that it does not take in account ids already living
-in the document. My plugin appends `-${ number }` (again, configurable) to
-prevent duplicates.
+A logical error present in [`rehype-slug`][rehype-slug] is also fixed here,
+namely that it does not take in account ids already living in the document.
+My plugin appends `-${ number }` (again, configurable) to prevent duplicates.
 
 ## Usage
 
-Install the plugin using npm...
+Install the plugin from npm[^registries]...
 
 ```sh
 npm install @tinnedtea/rehype-slug
@@ -65,8 +64,8 @@ A `Config` object consists of the following parameters:
 `boolean`
 *(defaults to `false`)*
 
-- `test?`, a node-matcher provided to [`hast-util-is-element`](https://github.com/syntax-tree/hast-util-is-element):
-[`Test`](https://github.com/syntax-tree/hast-util-is-element#function-testelement-index-parent)
+- `test?`, a node-matcher provided to [`hast-util-is-element`][hast-util-is-element]:
+[`Test`][Test]
 *(defaults to heading elements)*
 
 - `uniqueifier?`, a function, which makes a generated slug more unique:
@@ -103,12 +102,10 @@ The `rehype-slug` directory is now ready to be pushed to a registry.
 We are in open-source-land after all, aren't we?
 
 You are free to suggest changes and report issues by any means
-comfortable - may it be the repos issue-tracker, an [email](mailto:mail@tinnedtea.com)
-or a note on my fridge. As to repos, all of my projects have mirrors, whilst
-the origin is always on [GitLab](https://gitlab.com/tinnedtea/rehype-slug).
-If you want something more libre or mainstream, head to
-[Codeberg](https://codeberg.org/tinnedtea/rehype-slug) or
-[GitHub](https://github.com/tinnedtea/rehype-slug) respectively.
+comfortable - may it be the repos issue-tracker, an [email] or a 
+note on my fridge. As to repos, all of my projects have mirrors,
+whilst the origin is always on [GitLab]. If you want something
+more libre or mainstream, head to [Codeberg] or [GitHub] respectively.
 
 I accept issue-reports and pull-requests on all platforms (this may
 change as projects grow, I can only handle so many different types
@@ -117,4 +114,21 @@ of notifications, you know).
 ## Licence
 
 This plugin is licensed under the **GNU General Public License v3.0 only**.  
-The complete licence is provided in [`./licence`](./licence).
+The complete licence is provided in [`./licence`][./licence].
+
+
+[^registries]:
+You may also want to use an alternate npm-registry. My packages are
+also published to [GitLab], [Codeberg] and [GitHub], just follow a link
+and click on 'Packages', then follow the provided instructions.
+
+[@tinnedtea/rehype-slug]: https://npmjs.com/package/@tinnedtea/rehype-slug
+[rehype]: https://github.com/rehypejs/rehype
+[rehype-slug]: https://github.com/rehypejs/rehype-slug
+[hast-util-is-element]: https://github.com/syntax-tree/hast-util-is-element
+[Test]: https://github.com/syntax-tree/hast-util-is-element#function-testelement-index-parent
+[email]: mailto:mail@tinnedtea.com
+[GitLab]: https://gitlab.com/tinnedtea/rehype-slug
+[Codeberg]: https://codeberg.org/tinnedtea/rehype-slug
+[GitHub]: https://github.com/tinnedtea/rehype-slug
+[./licence]: ./licence
