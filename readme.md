@@ -1,6 +1,6 @@
 <div align='center'>
 
-# [@tinnedtea/rehype-slug][NPM Package]
+# [@tinnedtea/rehype-slug][Package]
 
 Add ids to your [`rehype`][Rehype]-nodes.
 
@@ -19,7 +19,7 @@ My plugin appends `-${ number }` (again, configurable) to prevent duplicates.
 
 ## Usage
 
-Install the plugin from npm[^registries]...
+Install the plugin from npm[^Registries]...
 
 ```sh
 npm install @tinnedtea/rehype-slug
@@ -65,7 +65,7 @@ A `Config` object consists of the following parameters:
 *(defaults to `false`)*
 
 - `test?`, a node-matcher provided to [`hast-util-is-element`][Hast Matcher]:
-[`Test`][Hast Matcher | Test]
+[`Test`][Hast Matcher - Test]
 *(defaults to heading elements)*
 
 - `uniqueifier?`, a function, which makes a generated slug more unique:
@@ -117,18 +117,18 @@ This plugin is licensed under the **GNU General Public License v3.0 only**.
 The complete licence is provided in [`./licence`][Licence].
 
 
-[^registries]: You may also want to use an alternate npm-registry. My 
+[^Registries]: You may also want to use an alternate npm-registry. My 
 packages are also published to [GitLab], [Codeberg] and [GitHub],
 just follow a link, navigate to packages and follow the provided
 instructions.
 
-[NPM Package]: https://npmjs.com/package/@tinnedtea/rehype-slug
-[Rehype]: https://github.com/rehypejs/rehype
-[Rehype Slug]: https://github.com/rehypejs/rehype-slug
-[Hast Matcher]: https://github.com/syntax-tree/hast-util-is-element
-[Hast Matcher | Test]: https://github.com/syntax-tree/hast-util-is-element#function-testelement-index-parent
-[Email]: mailto:mail@tinnedtea.com
-[GitLab]: https://gitlab.com/tinnedtea/rehype-slug
 [Codeberg]: https://codeberg.org/tinnedtea/rehype-slug
 [GitHub]: https://github.com/tinnedtea/rehype-slug
+[GitLab]: https://gitlab.com/tinnedtea/rehype-slug
+[Email]: mailto:mail@tinnedtea.com
+[Hast Matcher]: https://github.com/syntax-tree/hast-util-is-element
+[Hast Matcher - Test]: https://github.com/syntax-tree/hast-util-is-element/blob/2350475803dab89e5be54f6937a279259c62bcb8/index.js#L7
 [Licence]: ./licence
+[Package]: https://npmjs.com/package/@tinnedtea/rehype-slug
+[Rehype]: https://github.com/rehypejs/rehype
+[Rehype Slug]: https://github.com/rehypejs/rehype-slug
