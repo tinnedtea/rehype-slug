@@ -1,5 +1,5 @@
-import path from 'node:path'
-import url from 'node:url'
+import path from 'path'
+import url from 'url'
 import * as hastMatcher from 'hast-util-is-element'
 import * as hastStringifier from 'hast-util-to-string'
 import * as unistTree from 'unist-util-visit'
