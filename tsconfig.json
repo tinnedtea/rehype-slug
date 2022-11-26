@@ -13,5 +13,6 @@
 		"outDir": "./build",
 		"strict": true,
 		"target": "es2021"
-	}
+	},
+	"include": [ "./source/**/*" ]
 }
