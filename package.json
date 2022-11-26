@@ -11,7 +11,7 @@
 		"./build"
 	],
 	"main": "./build/plugin.js",
-	"types": "./build/types/plugin.d.ts",
+	"types": "./build/plugin.d.ts",
 	"dependencies": {
 		"@types/hast": "2.*.*",
 		"hast-util-is-element": "2.1.0 - 2.*.*",
