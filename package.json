@@ -22,11 +22,14 @@
 	"devDependencies": {
 		"@types/node": "16.18.*",
 		"rimraf": "3.0.*",
+		"ts-node": "10.9.*",
 		"typescript": "4.9.*"
 	},
 	"scripts": {
 		"prebuild": "rimraf ./build",
-		"build": "tsc --build --diagnostics --verbose"
+		"build": "tsc --build --diagnostics --verbose .",
+		"dev": "ts-node --esm --transpileOnly",
+		"dev:build": "tsc --build --incremental ."
 	},
 	"author": {
 		"email": "mail@tinnedtea.com",
