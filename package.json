@@ -1,5 +1,5 @@
 {
-	"$comment": "https://docs.npmjs.com/cli/v9/configuring-npm/package-json",
+	"$comment": "https://docs.npmjs.com/cli/configuring-npm/package-json",
 	"$schema": "https://json.schemastore.org/package.json",
 	"name": "@tinnedtea/rehype-slug",
 	"version": "1.2.2",
